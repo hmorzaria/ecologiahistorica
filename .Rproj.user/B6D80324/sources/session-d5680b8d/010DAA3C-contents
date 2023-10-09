@@ -1,20 +1,9 @@
 usethis::use_git_config(user.name = "Hem Nalini Morzaria-Luna", user.email = "hmorzaria@hotmail.com")
-credentials::set_github_pat("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") #Feb 6, 2023
+credentials::set_github_pat("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") #Oct 9, 2023
 usethis::edit_r_environ()
 usethis::git_sitrep()
 
-#use this to update PAT, needs GITHUB CLI
-gh auth login
 
-#To create a remote repository from local
-#conflicts with Github CLI
-#sudo apt  install gitsome # installs gh
-
-#gh create-repo vulnerabilitypackard
-git remote add vulnerabilitypackard https://hmorzaria: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@github.com/hmorzaria/vulnerabilitypackard.git
-git add .
-git commit -m "first commit"
-git branch -M main
 
 # to install GITHUB CLI
 type -p curl >/dev/null || sudo apt install curl -y
@@ -26,25 +15,34 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 #the origin needs to be added with token
 #https://dev.to/jeremydmarx813/personal-access-tokens-on-git-github-a-tale-of-a-lesson-mistake-and-future-quest-a61
 
+#To create a new remote repository
+
 1. git init
 
 2. git symbolic-ref HEAD refs/heads/main
 
 3. git remote add origin https://hmorzaria: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@github/hmorzaria/ecologiahistorica.git
 
+curl -u https://hmorzaria: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@github.com
+4. gh auth login #use this to update PAT, needs GITHUB CLI
 
+5. gh repo create
+#merge remote and local repositories
+6. git pull https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica main --allow-unrelated-histories
 
-git remote add ecologiahistorica https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica.git main
+#conflicts with Github CLI
+#sudo apt  install gitsome # installs gh
 
-git remote set-url ecologiahistorica https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica.git main
-
-git push -u origin https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica.git main 
-# if this doesn't work just push normally with:
+#gh create-repo vulnerabilitypackard
+git remote add vulnerabilitypackard https://hmorzaria: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@github.com/hmorzaria/vulnerabilitypackard.git
+git add .
+git commit -m "first commit"
+git branch -M main
 
 # To do subsequent commits
 git add -A
-git commit -m "-Check for changes"
-git push https://hmorzaria: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@github.com/hmorzaria/vulnerabilitypackard.git main
+git commit -m "-First commit"
+git push https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica.git main
 #see
 ##https://gist.github.com/Z3tt/3dab3535007acf108391649766409421
 
@@ -52,7 +50,7 @@ git add -A
 git commit -m "Added Github action"
 git push https://hmorzaria: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@github.com/hmorzaria/hemnalinimorzarialuna.quarto.io main
 
-git pull https://hmorzaria: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@github.com/hmorzaria/hemnalinimorzarialuna.quarto.io main
+git pull https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica main
 
 
 git add -A
