@@ -1,0 +1,77 @@
+---
+title: "Ecologia_historica"
+format: html
+editor: visual
+---383
+---
+
+Import libraries
+
+```{r}
+#| echo: false
+source("libraries.R")
+source("make_decades.R")
+```
+
+Process shapefiles
+
+```{r}
+list.shapefiles <- list.files(here("shapefiles"), pattern = "*Decades_Spatial.shp$", full.names = TRUE)
+
+
+lapply(list.shapefiles, make_decades)
+
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+Plot change
+
+```{r}
+
+list.shapefiles <- list.files(here("shapefiles"), pattern = "*Decades_Spatial_Change.shp$", full.names = TRUE)
+
+thisshapefile <- st_read(eachshapefile)
+
+ggplot() + 
+  geom_sf(data = thisshapefile, aes(fill = `X50_60`)) 
+
+```
+
+```{r}
+
+dibujos.table <- read_csv("Inventario_dibujos_participativos.csv") %>% 
+  separate(Comunidad, into=c("comunidad", "actividad"), sep="-")
+
+#Hay que estandarizar por el numero de encuestas por estero
+dibujos.table %>% 
+  group_by(Estero) %>% 
+  summarise(tot_species = sum(Presencia))
+
+#Hay que estandarizar por el numero de encuestas
+dibujos.table %>% 
+  group_by(Especie) %>% 
+  summarise(tot_species = sum(Presencia)) %>% 
+  arrange(desc(tot_species))
+
+dibujos.table %>% 
+  group_by(Estero, Especie) %>% 
+  summarise(tot_species = sum(Presencia))
+
+#Hay que estandarizar por el numero de encuestas por actividad
+
+dibujos.table %>% 
+  group_by(actividad) %>% 
+  summarise(tot_species = sum(Presencia))
+```
+
+Make shapefiles into rasters for Kappa calculation
+
+```{r}
+list.shapefiles <- list.files(here("shapefiles"), pattern = "*Decades_Spatial.shp$", full.names = TRUE)
+
+
+lapply(list.shapefiles, make_raster)
+
+
+```

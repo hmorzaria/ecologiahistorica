@@ -1,0 +1,178 @@
+usethis::use_git_config(user.name = "Hem Nalini Morzaria-Luna", user.email = "hmorzaria@hotmail.com")
+credentials::set_github_pat("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") #Feb 6, 2023
+usethis::edit_r_environ()
+usethis::git_sitrep()
+
+#use this to update PAT, needs GITHUB CLI
+gh auth login
+
+#To create a remote repository from local
+#conflicts with Github CLI
+#sudo apt  install gitsome # installs gh
+
+#gh create-repo vulnerabilitypackard
+git remote add vulnerabilitypackard https://hmorzaria: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@github.com/hmorzaria/vulnerabilitypackard.git
+git add .
+git commit -m "first commit"
+git branch -M main
+
+# to install GITHUB CLI
+type -p curl >/dev/null || sudo apt install curl -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+#the origin needs to be added with token
+#https://dev.to/jeremydmarx813/personal-access-tokens-on-git-github-a-tale-of-a-lesson-mistake-and-future-quest-a61
+
+1. git init
+
+2. git symbolic-ref HEAD refs/heads/main
+
+3. git remote add origin https://hmorzaria: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@github/hmorzaria/ecologiahistorica.git
+
+
+
+git remote add ecologiahistorica https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica.git main
+
+git remote set-url ecologiahistorica https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica.git main
+
+git push -u origin https://hmorzaria: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@github.com/hmorzaria/ecologiahistorica.git main 
+# if this doesn't work just push normally with:
+
+# To do subsequent commits
+git add -A
+git commit -m "-Check for changes"
+git push https://hmorzaria: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@github.com/hmorzaria/vulnerabilitypackard.git main
+#see
+##https://gist.github.com/Z3tt/3dab3535007acf108391649766409421
+
+git add -A
+git commit -m "Added Github action"
+git push https://hmorzaria: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@github.com/hmorzaria/hemnalinimorzarialuna.quarto.io main
+
+git pull https://hmorzaria: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@github.com/hmorzaria/hemnalinimorzarialuna.quarto.io main
+
+
+git add -A
+git commit -m "recreated cleaning data function"
+git push https://hmorzaria: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@github.com/hmorzaria/huachinangopacifico.git main
+
+
+git add -A
+git commit -m "Added outputs"
+git push https://hmorzaria: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@github.com/hmorzaria/huachinangopesca.git main
+
+
+# To do subsequent commits
+git add -A
+git commit -m "updated cities shapefile"
+git push https://hmorzaria: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@github.com/hmorzaria/ampsdata.git main
+#see
+##https://gist.github.com/Z3tt/3dab3535007acf108391649766409421
+#to pull from remote
+git pull https://github.com/hmorzaria/jellyfishpsatlantis main
+
+
+# To do subsequent commits
+git add -A
+git commit -m "revised glms to standarize variables to Kendall coefficient"
+git push https://hmorzaria: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@github.com/hmorzaria/ecopatheasternpacific.git main
+#see
+##https://gist.github.com/Z3tt/3dab3535007acf108391649766409421
+#to pull from remote
+git pull https://github.com/hmorzaria/ampsdata main
+
+
+git push https://hmorzaria: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@github.com/hmorzaria/hmorzarialuna.github.io
+
+#Undo commit and unstage all files:
+git reset HEAD~
+
+#to pull from remote
+git pull https://github.com/hmorzaria/vulnerabilitypackard main
+
+#https://happygitwithr.com/push-pull-github.html#push-pull-github
+
+#clone a repository
+git clone https://github.com/hmorzaria/gommesopelagic.git
+git clone https://github.com/hmorzaria/ampssalmon.git
+
+
+git init https://hmorzaria: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@github.com/hmorzaria/ampssurvival.git
+
+git remote add origin https://hmorzaria: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@github.com/hmorzaria/pssalmonsurvival.git
+
+git push -u origin https://hmorzaria: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@github.com/hmorzaria/pssalmonsurvival.git main
+
+git remote add origin <url>
+
+git push https://hmorzaria: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@github.com/hmorzaria/ecopatheasternpacific.git main
+
+hmorzaria
+G1t&ub!$7
+
+1 - Undo commit and keep all files staged: git reset --soft HEAD~;
+
+2 - Undo commit and unstage all files: git reset HEAD~;
+
+3 - Undo the commit and completely remove all changes: git reset --hard HEAD~;
+
+
+
+git add --all
+git commit -m "Final figures"
+#git pull https://github.com/hmorzaria/gommesopelagic master
+git push -u https://github.com/hmorzaria/gommesopelagic master
+hmorzaria
+
+
+#Git Large file
+# only needs to be done once for each file
+
+#install git-lfs
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
+sudo apt-get install git-lfs
+
+git lfs install
+
+#In each Git repository where you want to use Git LFS, select the file types you'd like Git LFS to manage (or directly edit your .gitattributes). You can configure additional file extensions at anytime.
+
+#jellyfish
+git lfs track "Unit_lines_habitat_class.shp"
+git lfs track "Unit_lines_habitat_class.zip"
+git lfs track "shapefile_4060.dbf"
+
+#huachinango
+git lfs track "*.dbf"
+git lfs track "*.csv"
+git lfs track "*.shp"
+git lfs track "*.zip"
+git lfs track "*.tif"
+git lfs track "*.xlsx"
+git lfs track "*.asc"
+
+
+#Now make sure .gitattributes is tracked:
+git add .gitattributes
+
+git add ~/huachinangopacifico/inputs/padron_beneficiarios_PROPESCA_Bienpesca_2014-2018.csv
+git add ~/huachinangopacifico/inputs/conjunto_de_datos_iter_00CSV20.csv
+
+git add -A
+git commit -m "Updated LFS"
+
+git push https://hmorzaria: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@github.com/hmorzaria/vulnerabilidadbid.git main
+
+git push https://hmorzaria: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@github.com/hmorzaria/huachinangopacifico.git main
+
+
+git push https://hmorzaria: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@github.com/hmorzaria/jellyfishpsatlantis.git main
+
+#can be used to fetch LFS
+git lfs fetch --all https://hmorzaria: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@github.com/hmorzaria/huachinangopacifico.git main
+
+git lfs fetch --all https://hmorzaria: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@github.com/hmorzaria/psatlantismodelupdates.git main
+
